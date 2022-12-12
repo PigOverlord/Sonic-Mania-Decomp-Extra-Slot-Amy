@@ -291,8 +291,8 @@ void PBL_Crane_State_CreatePrizes(void)
     for (int32 i = 1; i < 6; ++i) {
         EntityPBL_Crane *prize = CREATE_ENTITY(PBL_Crane, INT_TO_VOID(PBL_CRANE_PRIZEDISPLAY), spawnX, spawnY);
         if (globals->gameMode == MODE_ENCORE) {
-            if (!((1 << i) & globals->characterFlags) || i == PBL_CRANE_PRIZE_EGGMAN) {
-                if (!((1 << i) & globals->characterFlags) && i == PBL_CRANE_PRIZE_EGGMAN) {
+            if ((!((1 << i) & globals->characterFlags) && !GET_STOCK_ID(3)) || i == PBL_CRANE_PRIZE_EGGMAN) {
+                if ((!((1 << i) & globals->characterFlags) && !GET_STOCK_ID(3)) && i == PBL_CRANE_PRIZE_EGGMAN) {
                     prize->displayAnimator.frameID = PBL_CRANE_PRIZE_AMY;
                 }
                 else {
