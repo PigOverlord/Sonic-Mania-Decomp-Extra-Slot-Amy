@@ -26,7 +26,7 @@ void ItemBox_Update(void)
                 if (globals->gameMode == MODE_ENCORE) {
                     int32 id = 0;
                     while ((1 << self->contentsAnimator.frameID) & globals->characterFlags) {
-                        if (++self->contentsAnimator.frameID > 4)
+                        if (++self->contentsAnimator.frameID > 5) //Amy para item box?
                             self->contentsAnimator.frameID = 0;
                         if (++id > 5) {
                             RSDK.SetSpriteAnimation(ItemBox->aniFrames, 8, &self->contentsAnimator, false, 0);
